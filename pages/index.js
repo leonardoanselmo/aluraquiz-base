@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import Head from 'next/head';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import Footer from '../src/components/Footer';
@@ -25,28 +27,32 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
-    return (
-        <QuizBackground backgroundImage={db.bg}>
-            <QuizContainer>
-                <Widget>
-                    <Widget.Header>
-                        <h1>The legend of Zelda</h1>
-                    </Widget.Header>
-                    <Widget.Content>                        
-                        <p>lorem ipsum dolor sit amet...</p>
-                    </Widget.Content>
-                </Widget>
-                <Widget>
-                    <Widget.Header>
-                        <h1>Quiz da galera!</h1>
-                    </Widget.Header>
-                    <Widget.Content>                        
-                        <p>lorem ipsum dolor sit amet...</p>
-                    </Widget.Content>
-                </Widget>
-                <Footer />
-            </QuizContainer>    
-            <GitHubCorner projectUrl="https://github.com/leonardoanselmo" />        
-        </QuizBackground>
-    )
+  return (
+    <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>AluraQuiz - Modelo Base</title>
+      </Head>
+      <QuizContainer>
+        <QuizLogo />
+        <Widget>
+          <Widget.Header>
+            <h1>The legend of Zelda</h1>
+          </Widget.Header>
+          <Widget.Content>
+            <p>lorem ipsum dolor sit amet...</p>
+          </Widget.Content>
+        </Widget>
+        <Widget>
+          <Widget.Header>
+            <h1>Quiz da galera!</h1>
+          </Widget.Header>
+          <Widget.Content>
+            <p>lorem ipsum dolor sit amet...</p>
+          </Widget.Content>
+        </Widget>
+        <Footer />
+      </QuizContainer>
+      <GitHubCorner projectUrl="https://github.com/leonardoanselmo" />
+    </QuizBackground>
+  );
 }
